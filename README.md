@@ -1,4 +1,10 @@
-﻿# NSGA-Net
+# LAMARCKIAN WEIGHT INHERITANCE ON NSGA
+
+add readme
+
+
+
+# NSGA-Net
 Code accompanying the paper. All codes assume running from root directory. Please update the sys path at the beginning of the codes before running.
 > [NSGA-Net: Neural Architecture Search using Multi-Objective Genetic Algorithm](https://arxiv.org/abs/1810.03522)
 >
