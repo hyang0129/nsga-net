@@ -5,6 +5,7 @@ import os
 
 
 arg_string = '''
+--mode client
 --search_space micro 
 --init_channels 32 
 --n_gens 30 
@@ -19,6 +20,7 @@ arg_string = '''
 
 
 parser = argparse.ArgumentParser("Multi-objetive Genetic Algorithm for NAS")
+parser.add_argument('--mode', type=str, default='client', help='run as either a client or a server')
 parser.add_argument('--save', type=str, default='GA-BiObj', help='experiment name')
 parser.add_argument('--seed', type=int, default=0, help='random seed')
 parser.add_argument('--search_space', type=str, default='micro', help='macro or micro search space')
