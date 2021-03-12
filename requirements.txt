@@ -6,3 +6,4 @@ cloud-tpu-client==0.10
 numpy
 torchvision
 torch_xla
+black
