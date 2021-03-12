@@ -8,14 +8,16 @@ import os
 
 
 class CifarDataset(torch.utils.data.Dataset):
-    def __init__(self, path="data.npz", transform:torchvision.transforms.Compose=None):
-        '''
+    def __init__(
+        self, path="data.npz", transform: torchvision.transforms.Compose = None
+    ):
+        """
         Better performance cifar dataset, with all values loaded into memory. Reduces read pressure on disk.
 
         Args:
             path: save path of the zipped np arrays
             transform:
-        '''
+        """
         self.path = path
 
         if not os.path.exists(path):
