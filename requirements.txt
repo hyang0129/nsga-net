@@ -1,0 +1,8 @@
+torch
+pymoo==0.3.0
+loguru
+graphviz
+cloud-tpu-client==0.10
+numpy
+torchvision
+torch_xla
