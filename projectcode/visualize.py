@@ -8,8 +8,26 @@ from visualization.micro_visualize import op_labels
 
 
 def plot_mod(
-    genotype_tup: tuple, filename: str = "fn", file_type="pdf", view=True, reduce=False
+    genotype_tup: tuple,
+    filename: str = "fn",
+    reduce: bool = False,
+    file_type="pdf",
+    view=True,
 ):
+    """
+
+    Args:
+        genotype_tup: a tuple conforming to the genotype definition. see search/micro_encoding.py
+        filename: temporary file to store the graphviz data
+        reduce: to view the normal cell or the reduction cell for this genome
+        file_type: leave it as pdf
+        view: leave it as true
+
+
+    Returns:
+        A digraph from graphviz
+
+    """
     if reduce:
         genotype = genotype_tup[2]
         concat = genotype_tup[3]
@@ -18,7 +36,6 @@ def plot_mod(
         concat = genotype_tup[1]
     g = Digraph(
         format=file_type,
-        # graph_attr=dict(margin='0.2', nodesep='0.1', ranksep='0.3'),
         edge_attr=dict(fontsize="20", fontname="times"),
         node_attr=dict(
             style="filled",
@@ -77,11 +94,11 @@ def plot_mod(
     g.node("output", label="h[i+1]", fillcolor="palegoldenrod")
     g.edge("h[i+1]", "output", fillcolor="gray")
 
-    # g.attr(rank='same')
-
-    g.render(filename, view=view)
-
-    os.remove(filename)
+    try:
+        g.render(filename, view=view)
+    except Exception as e:
+        os.remove(filename)
+        raise e
     return g
 
 
